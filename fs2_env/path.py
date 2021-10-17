@@ -57,12 +57,14 @@ def parse_data_layout(layout: PathNode) -> Dict:
     return paths
 
 
-def get_fs2_paths(current_data_path: str = None) -> Dict:
+def get_fs2_paths(base_path: str, current_data_path: str = None) -> Dict:
     from .data_layout import fs2_data_layout
 
     data_layout = parse_data_layout(fs2_data_layout)
-    if current_data_path:
-        current_data_path_key = get_data_path_key(current_data_path)
-        data_layout = {k: re.sub('current_data_template', current_data_path_key, path) for k, path in data_layout.items()}
+    current_data_path_key = get_data_path_key(current_data_path) if current_data_path else 'current_data_template'
+    # if current_data_path:
+        # current_data_path_key = get_data_path_key(current_data_path)
+    data_layout = {k: os.path.join(base_path, re.sub('current_data_template', current_data_path_key, path))
+                   for k, path in data_layout.items()}
 
     return data_layout
