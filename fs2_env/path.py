@@ -15,7 +15,7 @@ class PathNode:
 
 
 def get_data_path_key(current_data_path_abspath: str) -> str:
-    data_path_key_regex = '\d{8}-\d{6}$|\d{8}-\d{6}-intermediate$'
+    data_path_key_regex = '\d{8}-\d{6}-intermediate|\d{8}-\d{6}'
 
     path_key_match = re.search(data_path_key_regex, current_data_path_abspath)
     if not path_key_match:
