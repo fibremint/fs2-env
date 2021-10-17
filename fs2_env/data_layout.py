@@ -2,7 +2,7 @@ from .path import PathNode
 
 
 fs2_data_layout = \
-    PathNode('fs2_data', contents=[
+    PathNode('fs2_base', display='fs2-data', contents=[
         PathNode('common', contents=[
             PathNode('lexicons', contents=[
                 PathNode('lexicon', display='librispeech-lexicon.txt')
@@ -12,9 +12,9 @@ fs2_data_layout = \
             PathNode('torchserve_config', display='torchserve-config.properties')
         ]),
         PathNode('data', contents=[
-            PathNode('current_data_template', contents=[
+            PathNode('current_data', display='current_data_template', contents=[
                 PathNode('aligned'),
-                PathNode('before-align'),
+                PathNode('before_align', display='before-align'),
                 PathNode('preprocessed', contents=[
                     PathNode('duration'),
                     PathNode('energy'),
@@ -26,7 +26,7 @@ fs2_data_layout = \
                     PathNode('validate_metadata', display='val.txt'),
                 ]),
                 PathNode('raw_data', display='raw-data'),
-                PathNode('trained_models', display='saved-models', contents=[
+                PathNode('train_output', display='saved-models', contents=[
                     PathNode('train_logs', display='logs'),
                     PathNode('train_checkpoints', display='models')
                 ]),
@@ -44,5 +44,4 @@ fs2_data_layout = \
             PathNode('archived_models', display='archived'),
             PathNode('deployed_models', display='model-store')
         ])
-    ]
-)
+    ])
