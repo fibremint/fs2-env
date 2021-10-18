@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='fs2_env',
-    version='0.1.0',
+    version='0.1.1',
     author='Lunar Bridge',
     author_email='horyuurabbit@gmail.com',
     packages=find_packages(),
